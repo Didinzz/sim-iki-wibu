@@ -9,7 +9,6 @@ if (isset($_POST['Login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Cek apakah email dan password ada di database
     $cekuser = mysqli_query($koneksi, "select * from regist where email = '$email' and password = '$password'");
     $hitung = mysqli_num_rows($cekuser);
 
