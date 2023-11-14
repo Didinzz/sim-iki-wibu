@@ -1,0 +1,250 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.contain{
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar{
+    background-color: #111827 ;
+    width: 260px;
+    padding: 24px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    transition: all ease-in .3s;
+    margin-left: 0;
+}
+
+.sidebar.hide {
+    width: 87px;
+    transition: all ease-out .3s;
+}
+
+.main-content{
+    flex-grow: 1;
+}
+
+.sidebar .description-header{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.sidebar.hide .description-header{
+    display:none;
+}
+
+.sidebar a{
+    text-decoration: none;
+}
+
+.sidebar .main .list-item .description{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.sidebar.hide .list-item .description{
+    display: none;
+}
+
+.sidebar .main .list-item .icon{
+    margin-right: 12px ;
+    width: 20px;
+    
+}
+
+.sidebar .main .list-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    /*width: 212px;*/
+    box-sizing: border-box;
+    
+    transition: all ease-in .2s;
+}
+
+.sidebar .main .list-item:hover{
+    background: #007fff;
+    transition: all ease-in .2s;
+}
+
+.main-content .dashboard{
+    text-align: start;
+    margin-top: 50px;
+    margin-left: 80px;
+}
+
+.custom-col {
+  margin-left: 70px; 
+}
+
+.custom-col a {
+    text-decoration: none; 
+    color: inherit;
+}
+/*bagian tanggapan*/
+.table-responsive {
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  
+  thead {
+    border: 1px solid #dee2e6;
+  }
+  
+  th {
+    font-weight: bold;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem;
+  }
+  
+  td {
+    border: 1px solid #dee2e6;
+    padding: 0.5rem;
+  }
+  
+  tbody {
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .input-admin {
+    width: 100%;
+  }
+  
+  
+/* toogle menu*/
+#menu-button{
+    width: 32px;
+    position: absolute;
+    overflow: hidden;
+}
+
+#menu-label{
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+
+#menu-checkbox{
+    display: none;
+}
+
+#hamburger, #menu-label::after, #menu-label::before{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+}
+
+#menu-label::after, #menu-label::before{
+    content:"" ;
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) left;
+}
+
+#menu-label::before{
+    top: 0;
+}
+
+#menu-label::after{
+    top: 8px;
+}
+
+#hamburger{
+    top: 16px;
+}
+
+#hamburger::before{
+    content: "MENU";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+    color: #111827;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#menu-checkbox:checked + #menu-label::before{
+    left: -39px;
+}
+
+#menu-checkbox:checked + #menu-label::after{
+    left: 39px;
+}
+
+#menu-checkbox:checked + #menu-label #hamburger::before{
+    animation: moveUptHenDown 0.8s ease 0.2s forwards,
+    shakeup 0.8s ease 0.2s forwards,
+    shakedown 0.2s ease 0.8s forwards;
+
+}
+
+@keyframes moveUptHenDown {
+    0%{
+        top: 0;
+    }
+    50%{
+        top: -27px;
+    }
+    100%{
+        top: -14px;
+    }
+}
+
+@keyframes shakeup {
+    0%{
+        transform: rotateZ(0);
+    }
+    25%{
+        transform: rotateZ(-10deg);
+    }
+    50%{
+        transform: rotateZ(0);
+    }
+    75%{
+        transform: rotateZ(10deg);
+    }
+    100%{
+        transform: rotateZ(0);
+    }
+}
+
+@keyframes shakedown {
+    0%{
+        transform: rotateZ(0);
+    }
+    80%{
+        transform: rotateZ(3deg);
+    }
+    90%{
+        transform: rotateZ(-3deg);
+    }
+    100%{
+        transform: rotateZ(0);
+    }
+}
+

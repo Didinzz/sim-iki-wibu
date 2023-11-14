@@ -1,0 +1,96 @@
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 500px;
+    background: #ebebeb;
+    border: none;
+    border-radius: 8px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px  rgba(0, 0, 0, 0.2) 
+    
+}
+
+.container .logo img{
+    max-width: 100px;
+}
+
+form  {
+    margin-top: -30px;
+}
+
+h1 {
+    font-size: 20px;
+}
+h2 {
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+
+p {
+    font-size: 40px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.container form{
+    display: flex;
+    flex-direction: column;
+}
+.container form a{
+    text-indent: -180px;
+}
+.container form input{
+    margin: 10px 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input, input::placeholder{
+    text-indent: 10px;
+    background-color:#dfdfdf;
+    outline: none;
+}
+
+hr{
+    border: 1px solid black;
+    width: 350px;
+ 
+}
+
+.logo{
+    margin-bottom: 30px;
+}
+
+button{
+    margin: 10px 100px;
+    height: 30px;
+    border: none;
+    background-color: #dfdfdf;;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: rgb(131, 129, 129);
+    color: white;
+    transition: 0.3s;
+    border-radius: 1px solid;
+  }
