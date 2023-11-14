@@ -24,7 +24,7 @@ session_start();
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $_SESSION['nama_lengkap'] ?>" placeholder="Nama Lengkap" value="" required>
+                                <input type="text" class="form-control" id="nama" name="nama" value="<?php if (isset($_SESSION['nama_lengkap'])) echo $_SESSION['nama_lengkap'] ?>" placeholder="Nama Lengkap" value="" required>
                             </div>
                             <p class="error"></p>
                         </div>

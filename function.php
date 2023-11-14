@@ -6,24 +6,16 @@ $koneksi = mysqli_connect("localhost", "root", "", "db_pengaduan");
 if (isset($_POST['Login'])) {
     session_start();
 
-    // Dapatkan nilai email dan password dari form
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    // Validasi email dan password
-    // if (empty($email)) {
-    //     echo "Email tidak boleh kosong";
-    // } else if (empty($password)) {
-    //     echo "Password tidak boleh kosong";
-    // } else {
 
     // Cek apakah email dan password ada di database
     $cekuser = mysqli_query($koneksi, "select * from regist where email = '$email' and password = '$password'");
     $hitung = mysqli_num_rows($cekuser);
-  
 
-        // Jika email dan password ada di database, maka login berhasil
-        if ($hitung > 0) {
+
+    // Jika email dan password ada di database, maka login berhasil
+    if ($hitung > 0) {
         $ambilData = mysqli_fetch_array($cekuser);
         $name = $ambilData['nama_lengkap'];
         $email = $ambilData['email'];
@@ -31,13 +23,13 @@ if (isset($_POST['Login'])) {
         $_SESSION['nama_lengkap'] = $name;
         $_SESSION['email'] = $email;
 
-            header('Location: halaman-depan.php');
-        } else {
+        header('Location: halaman-depan.php');
+    } else {
 
-            // Login gagal
-            echo "Login gagal";
-        }
+        // Login gagal
+        echo "Login gagal";
     }
+}
 
 
 
@@ -49,21 +41,20 @@ if (isset($_POST['buatPengaduan'])) {
     $pengaduan = $_POST['pengaduan'];
 
 
-    $sql = mysqli_query( $koneksi,"INSERT INTO tb_pengaduan (Nama, Email, Telpon, Alamat, Pengaduan) 
+    $sql = mysqli_query($koneksi, "INSERT INTO tb_pengaduan (Nama, Email, Telpon, Alamat, Pengaduan) 
             VALUES ('$nama', '$email', '$telpon', '$alamat', '$pengaduan')");
     // $rs = $koneksi->prepare($sql);
 
 
-        if($sql){
+    if ($sql) {
 
-            header("Location:halaman-depan.php");
-        }else{
-            echo "Data tidak terkirim";
-
-        }
+        header("Location:halaman-depan.php");
+    } else {
+        echo "Data tidak terkirim";
+    }
 }
 
-if(isset($_GET['hapus'])){
+if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
     $queryShow = "SELECT * FROM tb_pengaduan WHERE id = '$id'";
     $sqlShow = mysqli_query($koneksi, $queryShow);
@@ -74,7 +65,6 @@ if(isset($_GET['hapus'])){
     $sql = mysqli_query($koneksi, $query);
 
     if ($sql) header("Location: admin/tanggapan.php");
-
 }
 
 if (isset($_POST['register'])) {
@@ -91,11 +81,8 @@ if (isset($_POST['register'])) {
     $sql = "INSERT INTO regist (NIK, nama_lengkap, jenis_kelamin, tanggal_lahir, email, no_telp, password, confirm_password) 
             VALUES ('$NIK', '$nama_lengkap', '$jenis_kelamin', '$tanggal_lahir',
             '$email', '$no_telp', '$password', '$confirm_password')";
-    $rs = $con->prepare($sql);
+    $rs = $koneksi->prepare($sql);
 
     $save = $rs->execute();
-    header("Location:Login.html");
+    header("Location:Login.php");
 }
-
-
-?>
