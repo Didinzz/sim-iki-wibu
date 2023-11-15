@@ -59,9 +59,11 @@ if (isset($_GET['hapus'])) {
     $sqlShow = mysqli_query($koneksi, $queryShow);
     $result = mysqli_fetch_assoc($sqlShow);
 
-
+    // $deleteTanggapan = "DELETE FROM tb_tanggapan id = "
     $query = "DELETE FROM tb_pengaduan WHERE id = '$id'";
+    $query2 = "DELETE FROM tb_tanggapan WHERE id_pengaduan = '$id'";
     $sql = mysqli_query($koneksi, $query);
+    $sql = mysqli_query($koneksi, $query2);
 
     if ($sql) header("Location: admin/tanggapan.php");
 }
@@ -84,4 +86,17 @@ if (isset($_POST['register'])) {
 
     $save = $rs->execute();
     header("Location:Login.php");
+}
+
+if (isset($_POST['tanggapi'])) {
+    $pengaduan = $_POST['idPengaduan'];
+    $tanggapan = $_POST['tanggapan'];
+var_dump($pengaduan);
+    $sql = mysqli_query($koneksi, "INSERT INTO tb_tanggapan(id_pengaduan ,tanggapan) VALUES ('$pengaduan','$tanggapan')");
+
+    if ($sql) {
+        header('Location:tanggapan.php');
+    } else {
+        echo "data tidak terkirim";
+    }
 }

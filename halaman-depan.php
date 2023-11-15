@@ -26,7 +26,8 @@ session_start();
         <tbody>
             <?php
             $nama_lengkap = $_SESSION['nama_lengkap'];
-            $sql = mysqli_query($koneksi, "SELECT * FROM tb_pengaduan WHERE Nama = '$nama_lengkap' ");
+            $sql = mysqli_query($koneksi, "SELECT * FROM tb_pengaduan LEFT JOIN tb_tanggapan ON tb_pengaduan.id = tb_tanggapan.id_pengaduan WHERE Nama = '$nama_lengkap' ");
+            
             $id = 1;
             while ($a = mysqli_fetch_array($sql)) { ?>
                 <tr>
@@ -34,7 +35,7 @@ session_start();
                     <td><?= $a['Nama'] ?></td>
                     <td><?= $a['Alamat'] ?></td>
                     <td><?= $a['Pengaduan'] ?></td>
-                    <td>@mdo</td>
+                    <td><?= $a['tanggapan'] ?></td>
 
                 <?php $id++;
             } ?>
