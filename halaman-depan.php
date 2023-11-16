@@ -35,7 +35,11 @@ session_start();
                     <td><?= $a['Nama'] ?></td>
                     <td><?= $a['Alamat'] ?></td>
                     <td><?= $a['Pengaduan'] ?></td>
-                    <td><?= $a['tanggapan'] ?></td>
+                    <?php if ($a['tanggapan'] == null || $a['tanggapan'] == '') : ?>
+                        <td><?= $a['status'] ?></td>
+                    <?php else : ?>
+                        <td><?= $a['tanggapan'] ?></td>
+                    <?php endif ?>
 
                 <?php $id++;
             } ?>

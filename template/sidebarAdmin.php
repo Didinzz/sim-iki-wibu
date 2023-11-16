@@ -1,39 +1,46 @@
-<div class="sidebar">
-    <div class="header">
-        <div class="list-item">
-            <a href="../beranda.php ">
-                <span class="description-header"> PENGADUAN<br>MASYARAKAT</span>
-            </a>
-        </div>
-        <br>
-        <hr style="color: white;">
-        <br>
-        <br>
+<?php $page = basename($_SERVER['PHP_SELF']); ?>
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+        <div class="sidebar-brand-text mx-3">Pengaduan Masyarakat</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item <?php if ($page == 'index.php') : echo 'active';
+                        endif; ?>">
+        <a class="nav-link" href="index.php">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Informasi
     </div>
-    <div class="main">
-        <div class="list-item">
-            <a href="../admin/index.php">
-                <img src="ASSET/Dasboard.png" alt="" class="icon">
-                <span class="description">Dashboard</span>
-            </a>
-        </div>
-        <div class="list-item">
-            <a href="../admin/tanggapan.php">
-                <img src="ASSET/Tanggapan.svg" alt="" class="icon">
-                <span class="description">Tanggapan</span>
-            </a>
-        </div>
-        <div class="list-item">
-            <a href="#">
-                <img src="speedometer2.svg" alt="" class="icon">
-                <span class="description">Pengaduan</span>
-            </a>
-        </div>
-        <div class="list-item">
-            <a href="../logout.php">
-                <img src="speedometer2.svg" alt="" class="icon">
-                <span class="description">Logout</span>
-            </a>
-        </div>
+
+
+    <li class="nav-item <?php if ($page == 'tanggapan.php') : echo 'active';
+                        endif; ?>">
+        <a class="nav-link" href="tanggapan.php">
+            <i class="fas fa-fw fa-newspaper"></i>
+            <span>Data Pengaduan</span></a>
+    </li>
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-</div>
+
+</ul>

@@ -2,7 +2,6 @@
 require('function.php');
 include('template/header.php');
 include('template/navbar.php');
-session_start();
 ?>
 
 <div class="container" style="margin-top: 4rem;">
@@ -30,7 +29,7 @@ session_start();
                     <div class="col-sm-9">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php if (isset($_SESSION['email'])) echo $_SESSION['email'] ?>" required>
                         </div>
                         <p class="error"></p>
                     </div>

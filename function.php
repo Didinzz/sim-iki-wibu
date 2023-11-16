@@ -72,8 +72,8 @@ if (isset($_POST['buatPengaduan'])) {
     $pengaduan = $_POST['pengaduan'];
 
 
-    $sql = mysqli_query($koneksi, "INSERT INTO tb_pengaduan (Nama, Email, Telpon, Alamat, Pengaduan) 
-            VALUES ('$nama', '$email', '$telpon', '$alamat', '$pengaduan')");
+    $sql = mysqli_query($koneksi, "INSERT INTO tb_pengaduan (Nama, Email, Telpon, Alamat, Pengaduan, status) 
+            VALUES ('$nama', '$email', '$telpon', '$alamat', '$pengaduan', 'belum ditanggapi')");
     // $rs = $koneksi->prepare($sql);
 
 
@@ -126,8 +126,26 @@ if (isset($_POST['register'])) {
 if (isset($_POST['tanggapi'])) {
     $pengaduan = $_POST['idPengaduan'];
     $tanggapan = $_POST['tanggapan'];
-    var_dump($pengaduan);
+    $email = $_POST['email_user'];
     $sql = mysqli_query($koneksi, "INSERT INTO tb_tanggapan(id_pengaduan ,tanggapan) VALUES ('$pengaduan','$tanggapan')");
+
+
+    $query = "UPDATE tb_pengaduan SET status='sudah ditanggapi' WHERE id = '$pengaduan'";
+    $sqlUpdate = mysqli_query($koneksi, $query);
+
+
+    $to = "nur3_s1sisfo@mahasiswa.ung.ac.id";
+    $subject = "Pengaduan Masyarakat";
+    $message = $tanggapan;
+    $headers = "From: sumaalim@email.com";
+
+    // Fungsi mail() untuk mengirim email
+    if (mail($to, $subject, $message, $headers)) {
+        // echo "Email telah berhasil dikirim.";
+    } else {
+        echo "Email gagal dikirim.";
+    }
+
 
     if ($sql) {
         header('Location:tanggapan.php');
