@@ -1,23 +1,8 @@
-<?php session_start() ?>
+<?php session_start();
+$page = basename($_SERVER['PHP_SELF']);
+?>
 
-<!-- <header class="header">
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo/Logo.png">
-        </div>
-        <div class="menu">
-            <a href="index.php">Beranda</a>
-            <?php if (isset($_SESSION['nama_lengkap'])) { ?>
-                <a href="halaman-depan.php">Data Pengaduan</a>
-            <?php } ?>
-            <a href="pengaduan.php">Laporan</a>
-            <a href="#">Kontak</a>
-            <a href="#">Logout</a>
-        </div>
-    </nav>
-</header> -->
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="logo/Logo.png" alt="Bootstrap" width="50" height="44">
@@ -28,17 +13,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                    <a class="nav-link <?php if ($page == 'index.php') echo 'active' ?> " aria-current="page" href="index.php">Beranda</a>
                 </li>
+                <?php if (isset($_SESSION['nama_lengkap'])) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link  <?php if ($page == 'halaman-depan.php') echo 'active' ?>" aria-current="page" href="halaman-depan.php">Pengaduan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($page == 'pengaduan.php') echo 'active' ?>" aria-current="page" href="pengaduan.php">Laporan</a>
+                    </li>
+                <?php endif ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Laporan</a>
+                    <a class="nav-link" aria-current="page" href="#">Kontak</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Kontak</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Logout</a>
-                </li>
+                <?php if (isset($_SESSION['nama_lengkap'])) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
+                    </li>
+                <?php endif ?>
             </ul>
         </div>
     </div>

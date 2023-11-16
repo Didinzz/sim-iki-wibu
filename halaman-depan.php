@@ -6,9 +6,7 @@ include('template/navbar.php');
 session_start();
 ?>
 
-
-
-<main>
+<div class="container" style="margin-top: 4rem;">
     <div class="header1">
         <a href="#"><img src="img/home.gif"></a>
         <h1>Welcome/Selamat Datang</h1>
@@ -29,7 +27,7 @@ session_start();
             <?php
             $nama_lengkap = $_SESSION['nama_lengkap'];
             $sql = mysqli_query($koneksi, "SELECT * FROM tb_pengaduan LEFT JOIN tb_tanggapan ON tb_pengaduan.id = tb_tanggapan.id_pengaduan WHERE Nama = '$nama_lengkap' ");
-            
+
             $id = 1;
             while ($a = mysqli_fetch_array($sql)) { ?>
                 <tr>
@@ -44,6 +42,6 @@ session_start();
                 </tr>
         </tbody>
     </table>
-</main>
+</div>
 
 <?php include('template/footer.php'); ?>

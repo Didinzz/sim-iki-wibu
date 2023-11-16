@@ -1,9 +1,15 @@
 <?php
 require('function.php');
+if (isset($_POST['Login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
+    $errorMsg = loginUser($koneksi, $email, $password);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,22 +19,28 @@ require('function.php');
     <link rel="icon" href="Logo.png" type="image/x-icon">
     <title>Login</title>
 </head>
+
 <body>
     <div class="container">
+
         <form action="login.php" method="post">
-        <div class="logo"><img src="logo/Logo.png" alt=""></div>
-        <div class="login">
-            <form action="" class="login">
-                <p>Masuk</p>
-                <input type="text" name="email" placeholder=" Email">
-                <input type="password" name="password" placeholder="Password">
-                <a href="#">Forgot Password?</a>
-                <button name="Login" type="submit">Masuk</button>
-                <hr>
-                <h2>Anda Belum Punya Akun? <a href="regist.php">Daftar Sekarang</a></h2>
-            </form>
-        </div>
-    </form>
+            <div class="logo"><img src="logo/Logo.png" alt=""></div>
+            <div class="login">
+                <form action="" class="login">
+                    <?php if (isset($errorMsg)) : ?>
+                        <div class="text-merah"><?= $errorMsg ?></div>
+                    <?php endif ?>
+                    <p>Masuk</p>
+                    <input type="text" name="email" placeholder=" Email"><br>
+                    <input type="password" name="password" placeholder="Password"><br>
+                    <a href="#">Forgot Password?</a><br>
+                    <button name="Login" type="submit">Masuk</button>
+                    <hr>
+                    <h2>Anda Belum Punya Akun? <a href="regist.php">Daftar Sekarang</a></h2>
+                </form>
+            </div>
+        </form>
     </div>
 </body>
+
 </html>

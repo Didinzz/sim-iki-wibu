@@ -12,7 +12,7 @@
     </div>
     <div class="main">
         <div class="list-item">
-            <a href="../admin/dashboard.php">
+            <a href="../admin/index.php">
                 <img src="ASSET/Dasboard.png" alt="" class="icon">
                 <span class="description">Dashboard</span>
             </a>
@@ -27,6 +27,12 @@
             <a href="#">
                 <img src="speedometer2.svg" alt="" class="icon">
                 <span class="description">Pengaduan</span>
+            </a>
+        </div>
+        <div class="list-item">
+            <a href="../logout.php">
+                <img src="speedometer2.svg" alt="" class="icon">
+                <span class="description">Logout</span>
             </a>
         </div>
     </div>

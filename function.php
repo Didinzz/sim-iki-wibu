@@ -1,32 +1,64 @@
 <?php
+
 $koneksi = mysqli_connect("localhost", "root", "", "db_pengaduan");
 
-
 // Periksa apakah tombol Login telah diklik
-if (isset($_POST['Login'])) {
-    session_start();
+// if (isset($_POST['Login'])) {
+//     session_start();
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
 
+//     $cekuser = mysqli_query($koneksi, "select * from regist where email = '$email' and password = '$password'");
+//     $hitung = mysqli_num_rows($cekuser);
+
+
+//     // Jika email dan password ada di database, maka login berhasil
+//     if ($hitung > 0) {
+//         $ambilData = mysqli_fetch_array($cekuser);
+//         $name = $ambilData['nama_lengkap'];
+//         $email = $ambilData['email'];
+//         $role_as = $ambilData['role_as'];
+
+//         $_SESSION['nama_lengkap'] = $name;
+//         $_SESSION['email'] = $email;
+//         $_SESSION['role'] = $role_as;
+
+//         if ($role_as == 1) {
+//             header('Location: admin');
+//         } else {
+//             header('Location: index.php');
+//         }
+//     } else {
+
+//         echo "Login gagal";
+//     }
+// }
+
+function loginUser($koneksi, $email, $password)
+{
     $cekuser = mysqli_query($koneksi, "select * from regist where email = '$email' and password = '$password'");
     $hitung = mysqli_num_rows($cekuser);
 
-
     // Jika email dan password ada di database, maka login berhasil
     if ($hitung > 0) {
+        session_start();
         $ambilData = mysqli_fetch_array($cekuser);
         $name = $ambilData['nama_lengkap'];
         $email = $ambilData['email'];
+        $role_as = $ambilData['role_as'];
 
         $_SESSION['nama_lengkap'] = $name;
         $_SESSION['email'] = $email;
+        $_SESSION['role'] = $role_as;
 
-        header('Location: halaman-depan.php');
+        if ($role_as == 1) {
+            header('Location: admin');
+        } else {
+            header('Location: index.php');
+        }
     } else {
-
-        // Login gagal
-        echo "Login gagal";
+        return "Email Dan Password Salah!";
     }
 }
 
@@ -78,20 +110,23 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
+    if ($password == $confirm_password) {
+        $sql = "INSERT INTO regist (NIK, nama_lengkap, jenis_kelamin, tanggal_lahir, email, no_telp, password, role_as) 
+        VALUES ('$NIK', '$nama_lengkap', '$jenis_kelamin', '$tanggal_lahir',
+        '$email', '$no_telp', '$password', 1)";
+        $rs = $koneksi->prepare($sql);
 
-    $sql = "INSERT INTO regist (NIK, nama_lengkap, jenis_kelamin, tanggal_lahir, email, no_telp, password, confirm_password) 
-            VALUES ('$NIK', '$nama_lengkap', '$jenis_kelamin', '$tanggal_lahir',
-            '$email', '$no_telp', '$password', '$confirm_password')";
-    $rs = $koneksi->prepare($sql);
-
-    $save = $rs->execute();
-    header("Location:Login.php");
+        $save = $rs->execute();
+        header("Location:Login.php");
+    }
+    echo 'Password Dan Konfir Password Tidak Sama';
+    header("Location:regist.php");
 }
 
 if (isset($_POST['tanggapi'])) {
     $pengaduan = $_POST['idPengaduan'];
     $tanggapan = $_POST['tanggapan'];
-var_dump($pengaduan);
+    var_dump($pengaduan);
     $sql = mysqli_query($koneksi, "INSERT INTO tb_tanggapan(id_pengaduan ,tanggapan) VALUES ('$pengaduan','$tanggapan')");
 
     if ($sql) {

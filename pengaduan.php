@@ -5,118 +5,75 @@ include('template/navbar.php');
 session_start();
 ?>
 
-<body>
+<div class="container" style="margin-top: 4rem;">
 
 
-    <!-- content -->
-    <div class="main-content">
-
-
-        <h3>Buat Laporan</h3>
-        <hr />
-        <div class="row">
-            <div class="col-md-8 card-shadow-2 form-custom">
-                <form class="form-horizontal" role="form" method="post" action="" style="height: 100vh;">
-                    <div class="form-group">
-                    </div>
-                    <div class="form-group">
-                        <label for="nama" class="col-sm-3 control-label">Nama</label>
-                        <div class="col-sm-9">
-                            <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                                <input type="text" class="form-control" id="nama" name="nama" value="<?php if (isset($_SESSION['nama_lengkap'])) echo $_SESSION['nama_lengkap'] ?>" placeholder="Nama Lengkap" value="" required>
-                            </div>
-                            <p class="error"></p>
+    <h3>Buat Laporan</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-8 card-shadow-2 form-custom">
+            <form class="form-horizontal" role="form" method="post" action="" style="height: 100vh;">
+                <div class="form-group">
+                </div>
+                <div class="form-group">
+                    <label for="nama" class="col-sm-3 control-label">Nama</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            <input type="text" class="form-control" id="nama" name="nama" value="<?php if (isset($_SESSION['nama_lengkap'])) echo $_SESSION['nama_lengkap'] ?>" placeholder="Nama Lengkap" value="" required>
                         </div>
+                        <p class="error"></p>
                     </div>
-                    <div class="form-group">
-                        <label for="email" class="col-sm-3 control-label">Email</label>
-                        <div class="col-sm-9">
-                            <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="" required>
-                            </div>
-                            <p class="error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="" required>
                         </div>
+                        <p class="error"></p>
                     </div>
-                    <div class="form-group">
-                        <label for="telpon" class="col-sm-3 control-label">Telpon</label>
-                        <div class="col-sm-9">
-                            <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></div>
-                                <input type="text" class="form-control" id="telpon" name="telpon" placeholder="087123456789" value="" required>
-                            </div>
-                            <p class="error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="telpon" class="col-sm-3 control-label">Telpon</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></div>
+                            <input type="text" class="form-control" id="telpon" name="telpon" placeholder="087123456789" value="" required>
                         </div>
+                        <p class="error"></p>
                     </div>
-                    <div class="form-group">
-                        <label for="alamat" class="col-sm-3 control-label">Alamat</label>
-                        <div class="col-sm-9">
-                            <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-home"></span></div>
-                                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" value="" required>
-                            </div>
-                            <p class="error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="alamat" class="col-sm-3 control-label">Alamat</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-home"></span></div>
+                            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" value="" required>
                         </div>
+                        <p class="error"></p>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="pengaduan" class="col-sm-3 control-label">Isi Pengaduan</label>
-                        <div class="col-sm-9">
-                            <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></div>
-                                <textarea class="form-control" rows="4" name="pengaduan" placeholder="Tuliskan Isi Pengaduan" required></textarea>
-                            </div>
-                            <p class="error"></p>
+                <div class="form-group">
+                    <label for="pengaduan" class="col-sm-3 control-label">Isi Pengaduan</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></div>
+                            <textarea class="form-control" rows="4" name="pengaduan" placeholder="Tuliskan Isi Pengaduan" required></textarea>
                         </div>
+                        <p class="error"></p>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-10 col-sm-offset-3">
-                            <button id="submit" name="buatPengaduan" type="submit" class="btn btn-primary-custom form-shadow"> Kirim Pengaduan</button>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-3">
+                        <button id="submit" name="buatPengaduan" type="submit" class="btn btn-primary form-shadow"> Kirim Pengaduan</button>
                     </div>
+                </div>
 
-                </form>
-            </div>
-
+            </form>
         </div>
 
-        <!-- link to top -->
-        <a id="top" href="#" onclick="topFunction()">
-            <i class="fa fa-arrow-circle-up"></i>
-        </a>
-        <script>
-            // When the user scrolls down 100px from the top of the document, show the button
-            window.onscroll = function() {
-                scrollFunction()
-            };
-
-            function scrollFunction() {
-                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                    document.getElementById("top").style.display = "block";
-                } else {
-                    document.getElementById("top").style.display = "none";
-                }
-            }
-            // When the user clicks on the button, scroll to the top of the document
-            function topFunction() {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-            }
-        </script>
-        <!-- link to top -->
-
-
-        <!-- /.section -->
-        <hr>
     </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="js/bootstrap.js"></script>
-    </form>
-</body>
-
-</html>
+</div>

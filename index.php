@@ -4,24 +4,31 @@ include('template/header.php');
 include('template/navbar.php');
 ?>
 
-<div class="">
-    <div class="header1">
-        <h1>Halo, Selamat Datang di Iloseru</h1>
-        <p>Perubahan Dimulai dari</p>
-        <p>Pengaduan Anda</p>
-        <h2>Pengaduan anda, arah baru untuk Iloheluma</h2>
-        <div class="gambarorang">
-            <aside><img src="img/f44e43bc-b364-4461-a8d5-626aa75b2cf9.png"></aside>
-        </div>
-        <div class="button">
-            <a href="regist.php" class="tombol">Daftar</a>
-            <a href="Login.php" class="tombol2">Masuk</a>
+<div class="container" style="margin-top: 10rem;">
+
+
+    <div>
+        <div class="row">
+            <div class="col-md-7">
+                <p class="h6">Halo, Selamat Datang di Iloseru</p>
+                <h3>Perubahan Dimulai dari <br> Pengaduan Anda</h3>
+                <h6>Pengaduan anda, arah baru untuk Iloheluma</h6>
+                <div class="col-md-5 d-flex justify-content-between">
+                    <a href="regist.php" class="btn btn-info text-light" style="width: 8rem;">Daftar</a>
+                    <a href="Login.php" class="btn btn-info text-light" style="width: 8rem;">Masuk</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img src="img/f44e43bc-b364-4461-a8d5-626aa75b2cf9.png">
+            </div>
+
         </div>
     </div>
 
+
     <hr>
 
-    <div class="penjelasan">
+    <div>
         <div class="p1">
             <p>ILOSERU adalah platform online yang bertujuan untuk memberikan wadah kepada penduduk
                 Desa Iloheluma dalam menyampaikan berbagai keluhan, masalah, atau isu-isu penting yang
@@ -44,6 +51,8 @@ include('template/navbar.php');
                 "Perubahan Dimulai Dari Pengaduan Anda"
             </p>
         </div>
+
+
     </div>
 </div>
 <?php include('template/footer.php'); ?>
