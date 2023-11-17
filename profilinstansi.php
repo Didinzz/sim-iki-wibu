@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-        <meta charset="utf-8">
+
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Profil Dinas | Dispendukcapil Bangkalan</title>
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -11,30 +12,40 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Main Styles CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
-    </head>
-    <link href="CSS/profil.css" rel="stylesheet">
-<?php 
-include('template/navbar.php') 
+</head>
+<link href="CSS/profil.css" rel="stylesheet">
+<?php
+include('template/navbar.php')
 ?>
-    <body>
-    <div class="d-flex justify-content-center">
-      
+
+<body>
+    <div class="container">
+
         <div class="main-content">
             <h3>Profil Instansi</h3>
             <hr>
-            <ul class="nav nav-tabs justify-content-center">
-                <li><a aria-current="page" role="tab" href="#1" data-toggle="tab" class="navbar-link active">Profil Instansi</a> </li>
-                <li><a href="#2" role="tab" data-toggle="tab" class="navbar-link">Visi dan Misi</a> </li>
-                <li> <a href="#struktur" role="tab" data-toggle="tab" class="navbar-link">Struktur Organisasi</a> </li>
-                <li><a href="#motto" role="tab" data-toggle="tab" class="navbar-link">Motto</a> </li>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#1">Profil Instansi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#2">Visi dan Misi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#struktur">Struktur Organisasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#motto">Motto</a>
+                </li>
+
             </ul>
 
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="1">
                     <br>
-                    <img src="gambarkantor.jpg" class="img-responsive card-shadow" alt="">
+                    <img src="img/gambarkantor.jpg" class="img-responsive card-shadow" alt="">
                     <div style="text-align: start;">
-                        <br/>
+                        <br />
                         Berdasarkan Peraturan Daerah Kabupaten Bangkalan Nomor : 4 Tahun 2008 Tentang <br>
                         Susunan Organisasi dan Tata Kerja Lembaga Teknis Daerah Kabupaten Bangkalan <br>
                         Yang Selanjutnya Dijabarkan Kedalam Peraturan Bupati Bangkalan Nomor : <br>
@@ -46,7 +57,7 @@ include('template/navbar.php')
                         <h4><strong>Kedudukan</strong></h4>
                     </div>
                     <div style="text-align: justify">
-                        Dinas Kependudukan dan Pencatatan Sipil merupakan unsur pelaksana Pemerintah  <br>
+                        Dinas Kependudukan dan Pencatatan Sipil merupakan unsur pelaksana Pemerintah <br>
                         Daerah di bidang Kependudukan dan Pencatatan Sipil yang dipimpin oleh Kepala Dinas <br>
                         dan berkedudukan di bawah dan bertanggungjawab kepada Bupati melalui Sekretaris Daerah.
                     </div>
@@ -110,14 +121,14 @@ include('template/navbar.php')
                     </div>
                     <div style="text-align: justify">
                         Program Kegiatan yang dilaksanakan Dinas Kependudukan dan Pencatatan Sipil Kabupaten Bangkalan adalah :<br />
-                        1. Penataan Administrasi Kependudukan;
+                        1. Penataan Administrasi Kependudukan
                     </div>
                 </div>
                 <!-- End Profil Dinas -->
 
 
                 <!-- Visi Misi -->
-                <div role="tabpanel" class="tab-pane" id="2">
+                <div role="tabpanel" id="2">
                     <br>
                     <div>
                         <h4><strong>Visi</strong></h4>
@@ -134,121 +145,96 @@ include('template/navbar.php')
                         <h4><strong>Misi</strong></h4>
                     </div>
                     <div style="text-align: justify">
-                        1. Melaksanakan Tertib Administrasi  Kependudukan <br>
+                        1. Melaksanakan Tertib Administrasi Kependudukan <br>
                         2. Meningkatkan Kualitas Pelayanan Publik
                     </div>
                 </div>
                 <!-- End Visi Misi -->
 
                 <!-- Struktur -->
-                <div class="tab-pane" id="struktur">
+                <!-- <div id="struktur">
                     <h4>Struktur Organisasi</h4>
                     <img src="" class="img-responsive card-shadow" alt="">
-                </div>
+                </div> -->
                 <!-- End Struktur -->
 
                 <!-- Motto -->
-                <div class="tab-pane" id="motto">
+                <!-- <div id="motto">
                     <h4>Motto</h4>
                     <img src="" class="img-responsive shadow" alt="">
-                </div>
+                </div> -->
                 <!-- End Motto -->
 
-          </div>
-          <!-- End Tab content -->
-
-          <!-- link to top -->
-          <a id="top" href="#" onclick="topFunction()">
-              <i class="fa fa-arrow-circle-up"></i>
-          </a>
-          <script>
-              // When the user scrolls down 100px from the top of the document, show the button
-              window.onscroll = function() {scrollFunction()};
-              function scrollFunction() {
-                  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                      document.getElementById("top").style.display = "block";
-                  } else {
-                      document.getElementById("top").style.display = "none";
-                  }
-              }
-
-              // When the user clicks on the button, scroll to the top of the document
-              function topFunction() {
-                  document.body.scrollTop = 0;
-                  document.documentElement.scrollTop = 0;
-              }
-          </script>
-          <!-- link to top -->
-
-
-      </div>
-      <!-- end main-content -->
-
-      <hr>
-                </div>
             </div>
+            <!-- End Tab content -->
+        </div>
+        <!-- end main-content -->
+
+        <hr>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+<footer class="footer text-center" class="kakibanget">
+    <div class="row">
+        <div class="col-md-4 mb-5 mb-lg-0">
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                    <i class="fa fa-toggle-up fa-map-marker"></i>
+                </li>
+                <li class="list-inline-item">
+                    <h4 class="text-uppercase mb-4"></h4>
+                </li>
+            </ul>
+            <p class="mb-0">
+                Jl. Kasmat Lahay, Iloheluma, Kec. Tilongkabila,
+                <br>Kabupaten Bone Bolango, Gorontalo 96119
+            </p>
+        </div>
+        <div class="col-md-4 mb-5 mb-lg-0">
+            <ul class="list-inline mb-0">
+                <li class="list-inline item">
+                    <i class="fa fa-top fa-rss"></i>
+                </li>
+                <li class="list-inline-item">
+                    <h4 class="text-uppercase mb-4">Sosial Media</h4>
+                </li>
+            </ul>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://m.facebook.com/profile.php?id=2119644055032385">
+                        <i class="fa fa-fw fa-facebook"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                    <i class="fa fa-top fa-envelope-o"></i>
+                </li>
+                <li class="list-inline-item">
+                    <h4 class="text-uppercase mb-4">Kontak</h4>
+                </li>
+            </ul>
+            <p class="mb-0">
+                031-3095331 <br>
+                dispendukcapil@bangkalankab.go.id <br>
+                dispendukcapil.bangkalan@gmail.com
+            </p>
         </div>
     </div>
-    </body>
-    <footer class="footer text-center" class="kakibanget">
-        <div class="row">
-            <div class="col-md-4 mb-5 mb-lg-0">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                        <i class="fa fa-toggle-up fa-map-marker"></i>
-                    </li>
-                    <li class="list-inline-item">
-                        <h4 class="text-uppercase mb-4"></h4>
-                    </li>
-                </ul>
-                    <p class="mb-0">
-                        Jl. Kasmat Lahay, Iloheluma, Kec. Tilongkabila, 
-                        <br>Kabupaten Bone Bolango, Gorontalo 96119
-                    </p>
-                    </div>
-                    <div class="col-md-4 mb-5 mb-lg-0">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline item">
-                                <i class="fa fa-top fa-rss"></i>
-                            </li>
-                            <li class="list-inline-item">
-                                <h4 class="text-uppercase mb-4">Sosial Media</h4>
-                            </li>
-                        </ul>
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item">
-                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://m.facebook.com/profile.php?id=2119644055032385">
-                                    <i class="fa fa-fw fa-facebook"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item">
-                                <i class="fa fa-top fa-envelope-o"></i>
-                            </li>
-                            <li class="list-inline-item">
-                                <h4 class="text-uppercase mb-4">Kontak</h4>
-                            </li>
-                        </ul>
-                        <p class="mb-0">
-                            031-3095331 <br>
-                            dispendukcapil@bangkalankab.go.id <br>
-                            dispendukcapil.bangkalan@gmail.com
-                        </p>
-                    </div>
-                </div>
-            </footer>
-            <!-- /footer -->
+</footer>
+<!-- /footer -->
 
-            <div class="copyright py-4 text-center text-white">
-                <!-- <div class="container"> -->
-                    <small>v-6.0 | Copyright &copy; SIM Kelompok 2</small>
-                <!-- </div> -->
-            </div>
-            <!-- shadow -->
-    </div>
+<div class="copyright py-4 text-center text-white">
+    <!-- <div class="container"> -->
+    <small>v-6.0 | Copyright &copy; SIM Kelompok 2</small>
+    <!-- </div> -->
+</div>
+<!-- shadow -->
+</div>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>

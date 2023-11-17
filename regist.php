@@ -29,7 +29,7 @@ require('function.php');
                     <div class="user">
                         <div class="box">
                             <span class="details">NIK</span>
-                            <input name="NIK" type="text" placeholder="Nomor induk kependudukan (KTP)">
+                            <input name="NIK" type="text" maxlength="16" pattern="[0-9]{16}" placeholder="Nomor induk kependudukan (KTP)">
                         </div>
                         <div class="box">
                             <span class="details">Nama Lengkap</span>
@@ -52,11 +52,11 @@ require('function.php');
                         </div>
                         <div class="box">
                             <span class="details">No.Telp Aktif</span>
-                            <input name="no_telp" type="tel" placeholder="Minimal 8-14 Angka required">
+                            <input name="no_telp" type="tel" pattern="[0-9]{8,14}" placeholder="Minimal 8-14 Angka required">
                         </div>
                         <div class="box">
                             <span class="details">Password</span>
-                            <input name="password" type="password" placeholder="Minimal 8 karakter & berisi alfanumeri">
+                            <input name="password" type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" placeholder="Minimal 8 karakter & berisi alfanumeri">
                         </div>
                         <div class="box">
                             <span class="details">Confirm Password</span>

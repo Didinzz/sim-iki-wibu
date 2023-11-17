@@ -113,7 +113,7 @@ if (isset($_POST['register'])) {
     if ($password == $confirm_password) {
         $sql = "INSERT INTO regist (NIK, nama_lengkap, jenis_kelamin, tanggal_lahir, email, no_telp, password, role_as) 
         VALUES ('$NIK', '$nama_lengkap', '$jenis_kelamin', '$tanggal_lahir',
-        '$email', '$no_telp', '$password', 1)";
+        '$email', '$no_telp', '$password', 0)";
         $rs = $koneksi->prepare($sql);
 
         $save = $rs->execute();
@@ -132,19 +132,6 @@ if (isset($_POST['tanggapi'])) {
 
     $query = "UPDATE tb_pengaduan SET status='sudah ditanggapi' WHERE id = '$pengaduan'";
     $sqlUpdate = mysqli_query($koneksi, $query);
-
-
-    $to = "nur3_s1sisfo@mahasiswa.ung.ac.id";
-    $subject = "Pengaduan Masyarakat";
-    $message = $tanggapan;
-    $headers = "From: sumaalim@email.com";
-
-    // Fungsi mail() untuk mengirim email
-    if (mail($to, $subject, $message, $headers)) {
-        // echo "Email telah berhasil dikirim.";
-    } else {
-        echo "Email gagal dikirim.";
-    }
 
 
     if ($sql) {

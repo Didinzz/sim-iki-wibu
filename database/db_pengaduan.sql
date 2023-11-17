@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 15, 2023 at 05:41 PM
+-- Generation Time: Nov 16, 2023 at 11:26 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `regist` (
+  `id` int NOT NULL,
   `NIK` varchar(255) NOT NULL,
   `nama_lengkap` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(10) NOT NULL,
@@ -35,17 +36,16 @@ CREATE TABLE `regist` (
   `email` varchar(255) NOT NULL,
   `no_telp` varchar(12) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `confirm_password` varchar(255) NOT NULL,
   `role_as` tinyint NOT NULL DEFAULT '0' COMMENT '0=user, 1=admin'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `regist`
 --
 
-INSERT INTO `regist` (`NIK`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `email`, `no_telp`, `password`, `confirm_password`, `role_as`) VALUES
-('1234567875674646', 'rizky indra setiawan', 'Laki-Laki', '2004-03-28', 'starc5557@gmail.com', '082196579567', 'RizkyIndra01', 'RizkyIndra01', 0),
-('NkXqqhapgM', 'JGOsIn912J', 'Laki-Laki', '2004-09-29', 'kelht@jfvz.com', 'iiFLw2nZrh', 'zL9c6M8bh3', 'REfl2pMfWP', 0);
+INSERT INTO `regist` (`id`, `NIK`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `email`, `no_telp`, `password`, `role_as`) VALUES
+(1, '1234567875674646', 'rizky indra setiawan', 'Laki-Laki', '2004-03-28', 'starc5557@gmail.com', '082196579567', 'RizkyIndra01', 1),
+(5, '1236789056432444', 'User', 'Laki-Laki', '2023-11-17', 'user@gmail.com', '09726334', 'USer12345', 0);
 
 -- --------------------------------------------------------
 
@@ -59,8 +59,9 @@ CREATE TABLE `tb_pengaduan` (
   `Email` varchar(255) NOT NULL,
   `Telpon` varchar(255) NOT NULL,
   `Alamat` varchar(255) NOT NULL,
-  `Pengaduan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Pengaduan` text CHARACTER SET utf8mb4 COLLATE utf8_general_ci NOT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -72,11 +73,17 @@ CREATE TABLE `tb_tanggapan` (
   `id` int NOT NULL,
   `id_pengaduan` int NOT NULL,
   `tanggapan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `regist`
+--
+ALTER TABLE `regist`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tb_pengaduan`
@@ -95,16 +102,22 @@ ALTER TABLE `tb_tanggapan`
 --
 
 --
+-- AUTO_INCREMENT for table `regist`
+--
+ALTER TABLE `regist`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tb_pengaduan`
 --
 ALTER TABLE `tb_pengaduan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_tanggapan`
 --
 ALTER TABLE `tb_tanggapan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -27,6 +27,9 @@ $page = basename($_SERVER['PHP_SELF']);
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Kontak</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="profilinstansi.php">Profile</a>
+                </li>
                 <?php if (isset($_SESSION['nama_lengkap'])) : ?>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
